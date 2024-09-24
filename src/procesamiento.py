@@ -1,11 +1,12 @@
 import pandas as pd
 from pandas import DataFrame
 from dataclasses import dataclass
+from typing import Callable
 
 @dataclass
 class Empalmador:
     data_dict : dict[str, DataFrame]
-    empalme_func : callable[[DataFrame],DataFrame]
+    empalme_func : Callable[[DataFrame],DataFrame]
 
     def calculate(self)-> DataFrame: 
         return self.empalme_func(**self.data_dict)
@@ -40,7 +41,7 @@ def calcular_empalme_producto(df_fnys_prod:DataFrame, df_araoz:DataFrame, df_cep
 
     empalme = pd.concat([A_adjusted, B], ignore_index=True)
 
-    return empalme[['provincia','anio','vab_pb']]
+    return empalme[['provincia','anio','vab_pb']].sort_values(by=['provincia','anio']).reset_index(drop=True)
 
 
 def calcular_empalme_poblacion(df_indec:pd.DataFrame, df_fnys_pob:pd.DataFrame): 
@@ -61,4 +62,4 @@ def calcular_empalme_poblacion(df_indec:pd.DataFrame, df_fnys_pob:pd.DataFrame):
 
     empalme = pd.concat([fnys_adjusted, df_indec], ignore_index=True)
 
-    return empalme[['provincia','anio','pob_total']]
+    return empalme[['provincia','anio','pob_total']].sort_values(by=['provincia','anio']).reset_index(drop=True)

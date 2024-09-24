@@ -10,6 +10,20 @@ import re
 def check_na_threshold(df, threshold):
     return df.apply(lambda row: row.isna().sum() >= threshold, axis=1)
 
+
+# Lista de conectores y preposiciones que no se deben capitalizar
+excepciones = ['del', 'de']
+
+def corregir_provincia(nombre_provincia):
+    # Remover el código numérico y el guión
+    nombre_sin_codigo = re.sub(r'^.*?-','', nombre_provincia) 
+    
+    # Capitalizar el nombre, excepto preposiciones y conectores
+    palabras = nombre_sin_codigo.lower().split()
+    nombre_corregido = ' '.join([palabra.capitalize() if palabra not in excepciones else palabra for palabra in palabras])
+    
+    return nombre_corregido
+
 @dataclass
 class DataCleaner:
 
@@ -107,7 +121,7 @@ def cepal_clean(data:dict[str,pd.DataFrame]):
 
         # Transformo las columnas y agrego la columna 'provincia'
         df['anio'] = pd.to_numeric(df['anio'], errors='coerce')
-        df['vab_pb'] = pd.to_numeric(df['vab_pb'], errors='coerce')
+        df['vab_pb'] = pd.to_numeric(df['vab_pb'], errors='coerce')*1000000
         df['provincia'] = sheet_name_normalized if sheet_name_normalized != "Ciudad de Buenos Aires" else "CABA"
 
         # Limpiar nombres de columnas (similar a janitor::clean_names en R)
@@ -136,11 +150,13 @@ fnys_loader_poblacion = lambda filepath: read_excel(filepath,
 
 
 def fnys_cleaner_producto(data:DataFrame)->DataFrame:
+    data['pib_pm'] = data['pib_pm'] * 1000000
     return data.dropna(subset='pib_pm', axis=0)
 
 def fnys_cleaner_poblacion(data:DataFrame)->DataFrame:
     replacements = {'Ciudad de Buenos Aires': 'CABA',
-                    'Sta Cruz':'Santa Cruz'}
+                    'Sta Cruz':'Santa Cruz',
+                    'Santa Fé':'Santa Fe'}
     
     data.rename(columns={"Año":'anio'}, inplace=True)
     data = pd.melt(data, id_vars="anio", var_name="provincia", value_name="poblacion") 
@@ -167,9 +183,8 @@ def indec_clean(data:dict[str,pd.DataFrame]):
         # print(f"Limpiando datos de INDEC - Hoja: {sheet}\n")
 
             # Normalizo el nombre de la hoja
-        sheet_name_normalized = re.sub(r'^.*?-','',sheet) 
-        sheet_name_normalized = sheet_name_normalized if sheet_name_normalized == "CABA" else sheet_name_normalized.lower().capitalize()
-
+        sheet_name_normalized = corregir_provincia(nombre_provincia=sheet)
+        sheet_name_normalized = "CABA" if sheet_name_normalized == "Caba" else sheet_name_normalized.replace("Sante Fe","Santa Fe")
         df_raw = data[sheet]
 
         sheet_data = df_raw.iloc[4:36,:].dropna(axis=0, how='all')
