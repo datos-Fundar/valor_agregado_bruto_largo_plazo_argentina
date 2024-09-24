@@ -1,67 +1,104 @@
 
-from src.fuentes import AraozData, CepalData, FundNorteySurData
-from src.procesamiento import *
 import argparse
 from datetime import datetime
-
-
+import csv as csv_
+import re
+from pandas import DataFrame
+from src.fuentes import DataCleaner
+from src.fuentes import (
+    araoz_loader, 
+    araoz_clean, 
+    cepal_loader, 
+    cepal_clean, 
+    fnys_loader_producto, 
+    fnys_cleaner_producto,
+    fnys_loader_poblacion,
+    fnys_cleaner_poblacion,
+    indec_loader,
+    indec_clean
+    )
+from src.procesamiento import Empalmador
+from src.procesamiento import calcular_empalme_producto, calcular_empalme_poblacion
 
 PATHS = {
     'path_araoz': "input_data/araoz_nicolini_et_al.csv",
     'path_cepal': "https://repositorio.cepal.org/server/api/core/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/content",
-    'path_fnys': "https://docs.google.com/spreadsheets/d/e/2PACX-1vTAGGfIqDw18YDI5zasGBRa4sG1ddUfMcKT87fzTkvz8HMe8Ipl6zJU0M2788oZrw/pub?output=xls"
+    'path_fnys_prod': "https://docs.google.com/spreadsheets/d/e/2PACX-1vTAGGfIqDw18YDI5zasGBRa4sG1ddUfMcKT87fzTkvz8HMe8Ipl6zJU0M2788oZrw/pub?output=xls",
+    'path_indec': "https://www.indec.gob.ar/ftp/cuadros/poblacion/c1_proyecciones_prov_2010_2040.xls",
+    'path_fnys_pob': "https://docs.google.com/spreadsheets/d/e/2PACX-1vTp7K9ixEWzesZybHJG_e47YfafF49L8dqgtLgqItT45Gb4Ru0YjIF0723lxCHRhA/pub?output=xls"
 }
 
+formato_fundar = {
+    'encoding': 'utf-8',
+    'sep': ',',
+    'quoting': csv_.QUOTE_ALL,
+    'quotechar': '"',
+    'lineterminator': '\n',
+    'decimal': '.',
+    'index': False,
+    'float_format': '%.5f'
+}
+
+def save_csv_fundar(data:DataFrame, outpath:str)->None:
+    data.to_csv(outpath, **formato_fundar)
 
 today = datetime.today().strftime('%Y%m%d')
 
-def main(path_araoz:str, path_cepal:str, path_fnys:str, guardar_limpias:bool=False): 
+def main(path_araoz:str, path_cepal:str, path_fnys_prod:str, path_fnys_pob:str, path_indec:str, guardar_limpias:bool=False):
+
+    # Producto Bruto Geogáfico
+
+    # Araoz participacion de las provincias en el PIB
+    AraozData = DataCleaner(func_loader=araoz_loader, func_cleaner=araoz_clean)
+    df_araoz = AraozData.process(filepath=path_araoz)
+
+    # CEPAL-CEPXXI: VAB por provincia 2004-2022 a precios de 2004
+    CepalData = DataCleaner(func_loader=cepal_loader, func_cleaner=cepal_clean)
+    df_cepal = CepalData.process(filepath=path_cepal)
+
+    # Fundación Norte y Sur PIB a precios de mercado de 2004
+    ProductoFundNySData = DataCleaner(func_loader=fnys_loader_producto, func_cleaner=fnys_cleaner_producto)
+    df_fnys_prod = ProductoFundNySData.process(filepath=path_fnys_prod) 
+
+    dicc_prod = {'df_araoz':df_araoz,
+                 'df_cepal':df_cepal,
+                 'df_fnys_prod':df_fnys_prod}
+
+    PbgEmpalme = Empalmador(data_dict=dicc_prod, empalme_func=calcular_empalme_producto).calculate()   
     
-    print("Cargando y limpiando fuentes de información...\n")
-    # Araoz et al
-    araoz = AraozData()
-    araoz.init(filepath=path_araoz)
-    data_araoz = araoz.load_data()
-    data_transformed_araoz = araoz.clean_data(data_araoz)
 
-    # Cepal
-    cepal = CepalData()
-    cepal.init(filepath=path_cepal)
-    data_cepal = cepal.load_data()
-    data_transformed_cepal = cepal.clean_data(data_cepal)
+    # Población por provincia
 
-    # Fundación Norte y Sur
-    fundnorteysur = FundNorteySurData()
-    fundnorteysur.init(filepath=path_fnys)
-    data_fundnorteysur = fundnorteysur.load_data()
-    data_transformed_fundnorteysur = fundnorteysur.clean_data(data_fundnorteysur) 
+    # Fundación Norte y Sur Población por provincia hasta 2018
+    PoblacionFundNySData = DataCleaner(func_loader=fnys_loader_poblacion, func_cleaner=fnys_cleaner_poblacion)
+    df_fnys_pob = PoblacionFundNySData.process(filepath=path_fnys_pob)
 
+    # INDEC - Proyecciones 2010-2040
+    IndecData = DataCleaner(func_loader=indec_loader, func_cleaner=indec_clean)
+    df_indec = IndecData.process(filepath=path_indec)
+
+    dicc_pob = {'df_fnys_pob':df_fnys_pob, 'df_indec':df_indec}
+    PobEmpalme = Empalmador(data_dict=dicc_pob, empalme_func=calcular_empalme_poblacion)
+
+    # Merge Empalmes
+
+    data_empalmes = PbgEmpalme.merge(PobEmpalme, on=['provincia','anio'], how='left')
+    data_empalmes['vab_pb_per_capita'] = data_empalmes['vab_pb'] / data_empalmes['pob_total'] 
+
+    dicc_empalme = {'df_empalme':data_empalmes}
     if guardar_limpias: 
-        data_transformed_araoz.to_csv(f"tables/CLEAN_araoz_et_al_{today}.csv", index=False)
-        data_transformed_cepal.to_csv(f"tables/CLEAN_cepal_{today}.csv", index=False)
-        data_transformed_fundnorteysur.to_csv(f"tables/CLEAN_fundacion_norte_y_sur_{today}.csv", index=False)
-        print("Tablas limpias guardadas...\n")
+        # Exporto datasets limpios de PBG en '/tables'
+        for key,data in dicc_prod.items():
+            outpath = f"clean_{re.sub("df_","",key)}.csv"
+            save_csv_fundar(data=data, outpath=outpath)
 
-    print("Generando procesamiento a partir de fuentes limpias...\n")
+        for key,data in dicc_pob.items():
+            outpath = f"clean_{re.sub("df_","",key)}.csv"
+            save_csv_fundar(data=data, outpath=outpath)
+    
+    save_csv_fundar(data=data_empalmes, outpath="empalme_series_pbg_pob_vab_pc.csv")
 
-    # utilizamos el PIB a precios de mercados de Fundación Norte y Sur y lo distribuimos a las provincias
-    # con la participación en el VAB a precios básicos calculada por Araoz et al
-    A = calcular_pib_pm_provincial(df_araoz = data_transformed_araoz, df_fnys= data_transformed_fundnorteysur)
-
-    # Nos traemos el dato de CEPAL agregado por provincia (suamndo el todas las actividades)
-    B = agg_cepal(df_cepal=data_transformed_cepal)
-
-    # Calculamos el empalme tomando el año 2004 como año de empalme. Llevando la serie de CEPAL hacia atrás. 
-    empalme = calcular_empalme(A=A, B=B)
-
-    print("Finalizó procesamiento...\n")
-
-    ultimo_anio = empalme.anio.max()
-
-    empalme.to_csv(f"tables/serie_empalmada_vab_pb_1895_{ultimo_anio}_{today}.csv", index=False)
-    print("Empalme guardado...")
-
-    return empalme
+    return data_empalmes
 
 
 
