@@ -1,0 +1,241 @@
+provincia,anio,share_gdp
+Buenos Aires,1895,24.63
+CABA,1895,22.27
+Catamarca,1895,0.91
+Chaco,1895,0.29
+Chubut,1895,0.07
+Córdoba,1895,6.95
+Corrientes,1895,3.68
+Entre Ríos,1895,6.72
+Formosa,1895,0.15
+Jujuy,1895,0.77
+La Pampa,1895,0.63
+La Rioja,1895,0.8
+Mendoza,1895,3.49
+Misiones,1895,0.64
+Neuquén,1895,0.14
+Río Negro,1895,0.18
+Salta,1895,1.79
+San Juan,1895,2.55
+San Luis,1895,0.96
+Santa Cruz,1895,0.05
+Santa Fe,1895,14.03
+Santiago del Estero,1895,1.72
+Tierra del Fuego,1895,0.02
+Tucumán,1895,6.59
+Buenos Aires,1914,29.04
+CABA,1914,25.87
+Catamarca,1914,0.58
+Chaco,1914,0.46
+Chubut,1914,0.29
+Córdoba,1914,8.61
+Corrientes,1914,2.67
+Entre Ríos,1914,4.25
+Formosa,1914,0.22
+Jujuy,1914,0.87
+La Pampa,1914,1.5
+La Rioja,1914,0.74
+Mendoza,1914,2.93
+Misiones,1914,0.3
+Neuquén,1914,0.26
+Río Negro,1914,0.5
+Salta,1914,1.15
+San Juan,1914,0.97
+San Luis,1914,1.35
+Santa Cruz,1914,0.26
+Santa Fe,1914,12.7
+Santiago del Estero,1914,1.43
+Tierra del Fuego,1914,0.06
+Tucumán,1914,2.99
+Buenos Aires,1937,27.18
+CABA,1937,31.71
+Catamarca,1937,0.29
+Chaco,1937,1.22
+Chubut,1937,1.15
+Córdoba,1937,8.89
+Corrientes,1937,1.78
+Entre Ríos,1937,3.14
+Formosa,1937,0.46
+Jujuy,1937,0.63
+La Pampa,1937,1.25
+La Rioja,1937,0.27
+Mendoza,1937,2.44
+Misiones,1937,0.61
+Neuquén,1937,0.36
+Río Negro,1937,0.58
+Salta,1937,1.12
+San Juan,1937,0.74
+San Luis,1937,0.56
+Santa Cruz,1937,0.37
+Santa Fe,1937,11.82
+Santiago del Estero,1937,1.02
+Tierra del Fuego,1937,0.08
+Tucumán,1937,2.34
+Buenos Aires,1946,28.02
+CABA,1946,33.77
+Catamarca,1946,0.35
+Chaco,1946,1.44
+Chubut,1946,1.04
+Córdoba,1946,6.56
+Corrientes,1946,1.69
+Entre Ríos,1946,2.79
+Formosa,1946,0.44
+Jujuy,1946,0.69
+La Pampa,1946,1.02
+La Rioja,1946,0.3
+Mendoza,1946,3.65
+Misiones,1946,0.91
+Neuquén,1946,0.39
+Río Negro,1946,0.74
+Salta,1946,1.07
+San Juan,1946,1.31
+San Luis,1946,0.48
+Santa Cruz,1946,0.43
+Santa Fe,1946,9.6
+Santiago del Estero,1946,1.07
+Tierra del Fuego,1946,0.08
+Tucumán,1946,2.17
+Buenos Aires,1953,31.47
+CABA,1953,30.02
+Catamarca,1953,0.32
+Chaco,1953,1.78
+Chubut,1953,0.95
+Córdoba,1953,6.57
+Corrientes,1953,1.4
+Entre Ríos,1953,2.88
+Formosa,1953,0.47
+Jujuy,1953,0.83
+La Pampa,1953,0.95
+La Rioja,1953,0.28
+Mendoza,1953,3.88
+Misiones,1953,0.82
+Neuquén,1953,0.35
+Río Negro,1953,0.93
+Salta,1953,1.14
+San Juan,1953,1.14
+San Luis,1953,0.51
+Santa Cruz,1953,0.47
+Santa Fe,1953,9.13
+Santiago del Estero,1953,1.09
+Tierra del Fuego,1953,0.1
+Tucumán,1953,2.49
+Buenos Aires,1965,37.57
+CABA,1965,24.97
+Catamarca,1965,0.27
+Chaco,1965,1.62
+Chubut,1965,0.88
+Córdoba,1965,7.77
+Corrientes,1965,1.26
+Entre Ríos,1965,2.21
+Formosa,1965,0.35
+Jujuy,1965,0.64
+La Pampa,1965,0.97
+La Rioja,1965,0.21
+Mendoza,1965,3.83
+Misiones,1965,0.8
+Neuquén,1965,0.37
+Río Negro,1965,0.94
+Salta,1965,1.25
+San Juan,1965,1.17
+San Luis,1965,0.53
+Santa Cruz,1965,0.89
+Santa Fe,1965,9.2
+Santiago del Estero,1965,0.69
+Tierra del Fuego,1965,0.12
+Tucumán,1965,1.46
+Buenos Aires,1975,32.21
+CABA,1975,27.61
+Catamarca,1975,0.4
+Chaco,1975,1.14
+Chubut,1975,1.46
+Córdoba,1975,6.56
+Corrientes,1975,1.32
+Entre Ríos,1975,2.33
+Formosa,1975,0.54
+Jujuy,1975,1.04
+La Pampa,1975,0.6
+La Rioja,1975,0.38
+Mendoza,1975,4.44
+Misiones,1975,1.5
+Neuquén,1975,1.06
+Río Negro,1975,1.29
+Salta,1975,1.36
+San Juan,1975,0.98
+San Luis,1975,0.45
+Santa Cruz,1975,0.65
+Santa Fe,1975,8.53
+Santiago del Estero,1975,1.02
+Tierra del Fuego,1975,0.21
+Tucumán,1975,2.92
+Buenos Aires,1986,39.14
+CABA,1986,23.56
+Catamarca,1986,0.39
+Chaco,1986,0.89
+Chubut,1986,1.61
+Córdoba,1986,7.11
+Corrientes,1986,1.09
+Entre Ríos,1986,1.66
+Formosa,1986,0.3
+Jujuy,1986,0.69
+La Pampa,1986,1.03
+La Rioja,1986,0.51
+Mendoza,1986,2.64
+Misiones,1986,1.34
+Neuquén,1986,0.98
+Río Negro,1986,1.48
+Salta,1986,1.5
+San Juan,1986,0.94
+San Luis,1986,1.08
+Santa Cruz,1986,0.74
+Santa Fe,1986,8.21
+Santiago del Estero,1986,0.6
+Tierra del Fuego,1986,0.75
+Tucumán,1986,1.76
+Buenos Aires,1993,34.39
+CABA,1993,23.94
+Catamarca,1993,0.53
+Chaco,1993,1.26
+Chubut,1993,1.3
+Córdoba,1993,7.92
+Corrientes,1993,1.35
+Entre Ríos,1993,2.17
+Formosa,1993,0.59
+Jujuy,1993,0.87
+La Pampa,1993,0.85
+La Rioja,1993,0.53
+Mendoza,1993,3.9
+Misiones,1993,1.35
+Neuquén,1993,1.7
+Río Negro,1993,1.42
+Salta,1993,1.47
+San Juan,1993,1.09
+San Luis,1993,1.02
+Santa Cruz,1993,0.95
+Santa Fe,1993,7.86
+Santiago del Estero,1993,0.91
+Tierra del Fuego,1993,0.66
+Tucumán,1993,1.99
+Buenos Aires,2004,32.95
+CABA,2004,20.65
+Catamarca,2004,0.85
+Chaco,2004,1.3
+Chubut,2004,2.23
+Córdoba,2004,7.84
+Corrientes,2004,1.18
+Entre Ríos,2004,2.43
+Formosa,2004,0.51
+Jujuy,2004,0.84
+La Pampa,2004,0.88
+La Rioja,2004,0.58
+Mendoza,2004,3.92
+Misiones,2004,1.25
+Neuquén,2004,3.11
+Río Negro,2004,1.34
+Salta,2004,1.75
+San Juan,2004,1.1
+San Luis,2004,1.07
+Santa Cruz,2004,1.71
+Santa Fe,2004,8.82
+Santiago del Estero,2004,1.17
+Tierra del Fuego,2004,0.8
+Tucumán,2004,1.74
