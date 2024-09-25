@@ -4,154 +4,92 @@ Este repositorio contiene el codigo y bases de datos utilizadas para el armado
 de una serie de tiempo de largo plazo (1895 a la actualidad) del producto bruto
 geográfico de Argentina. 
 
-![Valor Agregado Bruto a precios básicos por provincia (1895-2022)](assets/output.png)
 
 ## Fuentes de información
 
 
-*   Araoz et al (2020). Contiene la participación de cada provincia en el PIB para los años 1895,1914,1937,1946,1953,1965,1975,1986,1993 y 2004. 
+*   **Araoz et al (2020). Growth and convergence among Argentine provinces since 1895 en Tirado Fabregat et al (Ed.), _Time and Space: Latin American Regional Development in Historical Perspective_ (Palgrave Studies in Economic History, pp. 65-95). Palgrave Macmillan. https://doi.org/10.1007/978-3-030-47553-6**. Contiene información sobre la participación de cada provincia en el PIB nacional, para los años 1895,1914,1937,1946,1953,1965,1975,1986,1993 y 2004. Datos extraídos de la Tabla 4.1. 
 
-*   CEPAL et al (2022). Contiene el Valor Agregado Bruto (VAB) a precios básicos por provincias entre los años 2004-2022
+*   **CEPAL et al (2023). _Desagregación provincial del valor agregado bruto de la Argentina, base 2004_. Programa de cooperación técnica de la CEPAL con el Ministerio de Economía de la Argentina. https://hdl.handle.net/11362/47900** Contiene el Valor Agregado Bruto (VAB) a precios básicos por provincias entre los años 2004-2022. Datos extraídos del [anexo estadístico](https://repositorio.cepal.org/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/download) 
 
-*   Fundación Norte y Sur. Contiene el PIB a precios de mercado entre 1810 y 2018
+*   **Ferreres, Orlando (2005). [Cuentas nacionales](https://dossiglos.fundacionnorteysur.org.ar/series/cuentas-nacionales) en _Dos siglos de economía argentina (1810 - 2004): historia argentina en cifras_. Fundación Norte y Sur.**. El capítulo contiene un amplio anexo estadístico el cual ha tenido ya varias actualizaciones. De la base de datos [Cuentas Nacionales](https://docs.google.com/spreadsheets/d/e/2PACX-1vTAGGfIqDw18YDI5zasGBRa4sG1ddUfMcKT87fzTkvz8HMe8Ipl6zJU0M2788oZrw/pub?output=xls) se extrajeron los datos correspondientes al PIB nacional a precios de mercado de 2004 entre los años 1809-2018
 
-*   INDEC. Contiene asdasdasdasd
+*   **Ferreres, Orlando (2005). [Provincias](https://dossiglos.fundacionnorteysur.org.ar/series/provincias) en _Dos siglos de economía argentina (1810 - 2004): historia argentina en cifras_. Fundación Norte y Sur.**. El capítulo contiene un amplio anexo estadístico el cual ha tenido ya varias actualizaciones. De la base de datos [Provincias - Serie 1](https://docs.google.com/spreadsheets/d/e/2PACX-1vTp7K9ixEWzesZybHJG_e47YfafF49L8dqgtLgqItT45Gb4Ru0YjIF0723lxCHRhA/pub?output=xls) se extrajeron los datos correspondientes a la población por provincia entre los años 1869-2018
+
+*   **Instituto Nacional de Estadísticas y Censos (2013). [Población estimada al 1 de julio según año calendario por sexo para el total del país y provincias. Años 2010-2040](https://www.indec.gob.ar/ftp/cuadros/poblacion/c1_proyecciones_prov_2010_2040.xls) en _Proyecciones provinciales de población por sexo y grupo de edad 2010-2014_. Ciudad Autónoma de Buenos Aires. INDEC.** Se extrajeron de aquí la proyección de la población por provincia, año y sexo. 
 
 
 ## Metodología
 
-La serie de tiempo consiste en un empalme de series utilizando el año 2004 como año de empalme.... 
+La metolodía consistió en el armado de tres series de tiempo de largo plazo (1895 a la actualidad): 
+*   Valor Agregado Bruto (VAB) a precios básicos de 2004 por provincia
+*   Población por provincia
+*   VAB per cápita a precios básicos de 2004 por provincia. La cual resulta de realizar un cociente por año y provincia de los indicadores anteriores. 
+
+A continuación se detalla la metodología de calculo empleada en los primeros dos casos
+
+### Valor Agregado Bruto (VAB) a precios básicos de 2004 por provincia
+
+En la siguiente tabla se detalla la metodología 
+
+| Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
+|---	|---	|---	|---	|
+| PIB a precios de mercado por provincia (PIBpm) 	| pesos constantes de 2004 	| 1895-2004 	| Tomando la participación de cada provincia en el PIB nacional <br>estimado en Aráoz et al (2020), y el valor del PIB a precios <br>de mercado proveniente de Ferreres (2005), se calcula el PIB a <br>precios de mercado por provincia 	|  	
+| VAB a precios básicos (VABpb)por provincia 	| pesos constantes de 2004 	| 2004-2022 	| Se toma el dato directamente de CEPAL 	|  	
+| VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 1895-2022 	| Para los años 2004-2022 se toma el VABpb de CEPAL. <br>Para los años 1895-2003 se estima el VABpb haciendo el empalme<br> hacia atrás: utilizando el valor del PIBpm de Ferreres y el cociente<br> VABpb (CEPAL) / PIBpm (Ferreres) en 2004 para replicar esa misma relación |
+
+
+Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las bases de datos, asi como también el calculo implmentado puede ver el código de los archivos `src/fuentes.py` y `src/procesamiento.py`
+
+### Población por provincia
+
+En la siguiente tabla se detalla la metodología 
+
+| Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
+|---	|---	|---	|---	|
+| Población por provincia 	| habitantes 	| 1895-2018 	| Se toma el dato directamente de Ferreres  	|  	
+| Población por provincia 	| habitantes 	| 2010-2040	| Se toma el dato directamente de INDEC 	|  	
+| Población por provincia 	| habitantes 	| 1895-2040 	| Para los años 2010-2022 se toma el dato de INDEC. <br>Para los años 1895-2009 se estima haciendo el empalme<br> hacia atrás: utilizando el valor del población de Ferreres y el cociente<br> población (INDEC) / población (Ferreres) en 2010 para replicar esa misma relación |
+
+
+Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las bases de datos, asi como también el calculo implmentado puede ver el código de los archivos `src/fuentes.py` y `src/procesamiento.py`
 
 
 ## Código 
 
-El código de Python en este repositorio contiene un programa que puede correrse por línea de comando. 
-
-
-```
-python run.py  # genera/actualiza empalme y guarda en la carpeta "./tables"
-python run.py --generar-tablas # guarda las tablas limpias en la carpeta "./tables/"
+### Instalación 
 
 ```
+pip install -r requirements.txt
+```
 
+### Linea de comandos
 
-O se puede ejecutar dentro de una notebook de Python. 
+```
+python run.py  # genera empalme y guarda en la carpeta "./tablas"
+python run.py --generar-tablas # guarda las tablas limpias en la carpeta "./tablas/"
+
+```
+
+### Notebook 
+
 
 ```python
 
-from run import main
-
-PATHS = {
-    'path_araoz': "input_data/araoz_nicolini_et_al.csv",
-    'path_cepal': "https://repositorio.cepal.org/server/api/core/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/content",
-    'path_fnys': "https://docs.google.com/spreadsheets/d/e/2PACX-1vTAGGfIqDw18YDI5zasGBRa4sG1ddUfMcKT87fzTkvz8HMe8Ipl6zJU0M2788oZrw/pub?output=xls"
-}
+import seaborn as sns
+from run import main, PATHS
 
 empalme_df = main(**PATHS)
 
+# VABpb per capita por provincia 
+to_plot = empalme_df.query(expr="provincia != 'No distribuido'") # Solo hay datos entre 2004-2022
+anio_max = to_plot.anio.max()
+col_ord = to_plot[to_plot.anio==anio_max].sort_values(by='vab_pb_per_capita',ascending=False)['provincia'].to_list()
+g =sns.FacetGrid(to_plot, col='provincia', col_wrap=4, col_order=col_ord)
+g.map_dataframe(sns.lineplot, x='anio', y='vab_pb_per_capita')
+g.set_axis_labels(x_var = "Año", y_var= "Pesos constantes de 2004" )
+g.set_titles(col_template="{col_name}")
+g.tight_layout()
+
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>provincia</th>
-      <th>anio</th>
-      <th>vab_pb</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Buenos Aires</td>
-      <td>1895</td>
-      <td>4158.050900</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>CABA</td>
-      <td>1895</td>
-      <td>3899.104045</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Catamarca</td>
-      <td>1895</td>
-      <td>174.232343</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Chaco</td>
-      <td>1895</td>
-      <td>52.668648</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Chubut</td>
-      <td>1895</td>
-      <td>12.641585</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>686</th>
-      <td>Tucumán</td>
-      <td>2018</td>
-      <td>11948.695281</td>
-    </tr>
-    <tr>
-      <th>687</th>
-      <td>Tucumán</td>
-      <td>2019</td>
-      <td>12048.029232</td>
-    </tr>
-    <tr>
-      <th>688</th>
-      <td>Tucumán</td>
-      <td>2020</td>
-      <td>10852.160282</td>
-    </tr>
-    <tr>
-      <th>689</th>
-      <td>Tucumán</td>
-      <td>2021</td>
-      <td>11862.031244</td>
-    </tr>
-    <tr>
-      <th>690</th>
-      <td>Tucumán</td>
-      <td>2022</td>
-      <td>11856.808241</td>
-    </tr>
-  </tbody>
-</table>
-<p>691 rows × 3 columns</p>
-</div>
-
-
-<div>
-<a href="https://fund.ar">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/datos-Fundar/fundartools/assets/86327859/6ef27bf9-141f-4537-9d78-e16b80196959">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/datos-Fundar/fundartools/assets/86327859/aa8e7c72-4fad-403a-a8b9-739724b4c533">
-    <img src="fund.ar"></img>
-  </picture>
-</a>
-</div>
+![Valor Agregado Bruto per cápita a precios básicos por provincia (1895-2022)](assets/output.png)
