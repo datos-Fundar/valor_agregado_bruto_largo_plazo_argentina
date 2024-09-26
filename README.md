@@ -57,7 +57,7 @@ Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las base
 
 ## Datos Abiertos
 
-En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas que se utilizaron para realizar los empalmes de las series de tiempo de VABpb y de Población. Asimismo queda disponibilizada la última actualización de la Serie de
+En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas que se utilizaron para realizar los empalmes de las series de tiempo de VABpb y de Población. Asimismo queda disponibilizada la última actualización de la **Serie anual de Valor Agregado Bruto a precios básicos en pesos constantes de 2004 (1895-actualidad)**.
 
 ### [clean_araoz.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_araoz.csv)
 
@@ -71,7 +71,7 @@ En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas q
 
 |**Variable**|**Tipo de dato**|**Descripcion**|
 |:-------------:|:-------------:|:-------------:|
-| sector_de_actividad_económica | alfanumérico | Sector de la actividad Económica |
+| sector_de_actividad_economica | alfanumérico | Sector de la actividad Económica |
 | anio | entero | Año |
 | vab_pb | real | VAB provincial a precios básicos en pesos constantes de 2004  |
 | provincia | alfanumérico | Provincia de Argentina |
@@ -114,7 +114,7 @@ En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas q
 
 ## Código 
 
-### Instalación 
+### Requerimientos
 
 ```
 pip install -r requirements.txt
@@ -150,3 +150,18 @@ g.tight_layout()
 
 ```
 ![Valor Agregado Bruto per cápita a precios básicos por provincia (1895-2022)](assets/output.png)
+
+
+---
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>
+  &nbsp;
+  <a href="https://fund.ar">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/datos-Fundar/fundartools/assets/86327859/6ef27bf9-141f-4537-9d78-e16b80196959">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/datos-Fundar/fundartools/assets/86327859/aa8e7c72-4fad-403a-a8b9-739724b4c533">
+    <img src="fund.ar"></img>
+  </picture>
+</a>
+</div>
