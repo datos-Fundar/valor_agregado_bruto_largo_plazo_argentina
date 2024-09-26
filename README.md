@@ -34,9 +34,9 @@ En la siguiente tabla se detalla la metodología
 
 | Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
 |---	|---	|---	|---	|
-| PIB a precios de mercado por provincia (PIBpm) 	| pesos constantes de 2004 	| 1895-2004 	| Tomando la participación de cada provincia en el PIB nacional <br>estimado en Aráoz et al (2020), y el valor del PIB a precios <br>de mercado proveniente de Ferreres (2005), se calcula el PIB a <br>precios de mercado por provincia 	|  	
+| PIB a precios de mercado por provincia (PIBpm) 	| pesos constantes de 2004 	| 1895-2004 	| Tomando la participación de cada provincia en el PIB nacional <br>estimado en Aráoz et al (2020), y el valor del PIB a precios de mercado proveniente de Ferreres (2005), se calcula el PIB a precios de mercado por provincia 	|  	
 | VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 2004-2022 	| Se toma el dato directamente de CEPAL 	|  	
-| VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 1895-2022 	| Para los años 2004-2022 se toma el VABpb de CEPAL. <br>Para los años 1895-2003 se estima el VABpb haciendo el empalme<br> hacia atrás: utilizando el valor del PIBpm de Ferreres y el cociente<br> VABpb (CEPAL) / PIBpm (Ferreres) en 2004 para replicar esa misma relación |
+| VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 1895-2022 	| Para los años 2004-2022 se toma el VABpb de CEPAL. Para los años 1895-2003 se estima el VABpb haciendo el empalme hacia atrás: utilizando el valor del PIBpm de Ferreres y el cociente VABpb (CEPAL) / PIBpm (Ferreres) en 2004 para replicar esa misma relación |
 
 
 Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las bases de datos, asi como también el calculo implmentado puede ver el código de los archivos `src/fuentes.py` y `src/procesamiento.py`
@@ -49,7 +49,7 @@ En la siguiente tabla se detalla la metodología
 |---	|---	|---	|---	|
 | Población por provincia 	| habitantes 	| 1895-2018 	| Se toma el dato directamente de Ferreres  	|  	
 | Población por provincia 	| habitantes 	| 2010-2040	| Se toma el dato directamente de INDEC 	|  	
-| Población por provincia 	| habitantes 	| 1895-2040 	| Para los años 2010-2022 se toma el dato de INDEC. <br>Para los años 1895-2009 se estima haciendo el empalme<br> hacia atrás: utilizando el valor del población de Ferreres y el cociente<br> población (INDEC) / población (Ferreres) en 2010 para replicar esa misma relación |
+| Población por provincia 	| habitantes 	| 1895-2040 	| Para los años 2010-2022 se toma el dato de INDEC. Para los años 1895-2009 se estima haciendo el empalme hacia atrás: utilizando el valor del población de Ferreres y el cociente población (INDEC) / población (Ferreres) en 2010 para replicar esa misma relación |
 
 
 Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las bases de datos, asi como también el calculo implmentado puede ver el código de los archivos `src/fuentes.py` y `src/procesamiento.py`
