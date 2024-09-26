@@ -35,7 +35,7 @@ En la siguiente tabla se detalla la metodología
 | Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
 |---	|---	|---	|---	|
 | PIB a precios de mercado por provincia (PIBpm) 	| pesos constantes de 2004 	| 1895-2004 	| Tomando la participación de cada provincia en el PIB nacional <br>estimado en Aráoz et al (2020), y el valor del PIB a precios de mercado proveniente de Ferreres (2005), se calcula el PIB a precios de mercado por provincia 	|  	
-| VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 2004-2022 	| Se toma el dato directamente de CEPAL 	|  	
+| VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 2004-2022 	| Se toma el dato directamente de CEPAL que está desagregado por año, provincia y sector de la actividad económica y se realiza una agregación sumando el todos los sectores para cada año y provincia, para obtener el VABpb total por provincia y año	|  	
 | VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 1895-2022 	| Para los años 2004-2022 se toma el VABpb de CEPAL. Para los años 1895-2003 se estima el VABpb haciendo el empalme hacia atrás: utilizando el valor del PIBpm de Ferreres y el cociente VABpb (CEPAL) / PIBpm (Ferreres) en 2004 para replicar esa misma relación |
 
 
@@ -53,6 +53,62 @@ En la siguiente tabla se detalla la metodología
 
 
 Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las bases de datos, asi como también el calculo implmentado puede ver el código de los archivos `src/fuentes.py` y `src/procesamiento.py`
+
+## Datos Abiertos
+
+En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas que se utilizaron para realizar los empalmes de las series de tiempo de VABpb y de Población. 
+
+### [clean_araoz.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_araoz.csv)
+
+|**Variable**|**Tipo de dato**|**Descripcion**|
+|:-------------:|:-------------:|:-------------:|
+| provincia | alfanumérico | Provincia de Argentina |
+| anio | entero | Año |
+| share_gdp | real | Participación del VAB provincial en el total nacional, en %  |
+
+### [clean_cepal.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_cepal.csv)
+
+|**Variable**|**Tipo de dato**|**Descripcion**|
+|:-------------:|:-------------:|:-------------:|
+| sector_de_actividad_económica | alfanumérico | Sector de la actividad Económica |
+| anio | entero | Año |
+| vab_pb | real | VAB provincial a precios básicos en pesos constantes de 2004  |
+| provincia | alfanumérico | Provincia de Argentina |
+
+### [clean_fnys_pob.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_fnys_pob.csv)
+
+|**Variable**|**Tipo de dato**|**Descripcion**|
+|:-------------:|:-------------:|:-------------:|
+| provincia | alfanumérico | Provincia de Argentina |
+| anio | entero | Año |
+| poblacion | real | Cantidad de habitantes estimados  |
+
+### [clean_fnys_prod.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_fnys_prod.csv)
+
+|**Variable**|**Tipo de dato**|**Descripcion**|
+|:-------------:|:-------------:|:-------------:|
+| anio | entero | Año |
+| pib_pm | real | PBI a precios de mercado en pesos constantes de 2004  |
+
+### [clean_indec.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_indec.csv)
+
+|**Variable**|**Tipo de dato**|**Descripcion**|
+|:-------------:|:-------------:|:-------------:|
+| anio | entero | Año |
+| pob_total | real | Cantidad de habitantes estimados  |
+| pob_varones | real | Cantidad de habitantes varones estimados  |
+| pob_mujeres | real | Cantidad de habitantes varones estimados  |
+| provincia | alfanumérico | Provincia de Argentina |
+
+### [empalme_series_pbg_pob_vab_pc.csv.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/empalme_series_pbg_pob_vab_pc.csv)
+
+|**Variable**|**Tipo de dato**|**Descripcion**|
+|:-------------:|:-------------:|:-------------:|
+| provincia | alfanumérico | Provincia de Argentina |
+| anio | entero | Año |
+| vab_pb | real | VAB provincial a precios básicos en pesos constantes de 2004  |
+| pob_total | real | Cantidad de habitantes estimados  |
+| vab_pb_per_capita | real | VAB per cápita a precios básicos en pesos constantes de 2004  |
 
 
 ## Código 
