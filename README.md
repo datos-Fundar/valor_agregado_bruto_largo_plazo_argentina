@@ -1,5 +1,7 @@
 # El producto bruto de las provincias argentinas en el largo plazo. 
-### Serie anual de Valor Agregado Bruto a precios básicos en pesos constantes de 2004 (1895-actualidad). 
+<h3 style="font-weight: normal; font-size: 1.2em; color: gray;">
+    Serie anual de Valor Agregado Bruto a precios básicos en pesos constantes de 2004 (1895-actualidad).
+</h3>
 
 Este repositorio contiene el codigo y bases de datos utilizadas para el armado 
 de una serie de tiempo de largo plazo (1895 a la actualidad) del producto bruto
@@ -32,6 +34,24 @@ A continuación se detalla la metodología de calculo empleada en los primeros d
 ### Valor Agregado Bruto (VAB) a precios básicos de 2004 por provincia
 
 En la siguiente tabla se detalla la metodología 
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  th, td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+  }
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+</style>
 
 | Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
 |---	|---	|---	|---	|
@@ -150,6 +170,23 @@ g.tight_layout()
 
 ```
 ![Valor Agregado Bruto per cápita a precios básicos por provincia (1895-2022)](assets/output.png)
+
+
+---
+## Cita sugerida
+
+Schteingart, Daniel; Ibarra, Ignacio (2024). El producto bruto de las provincias argentinas en el largo plazo (1895-actualidad). Fundar.
+
+```bibtex
+@misc{Fundar_and_Schteingart_Serie_anual_de_2024,
+author = {{Fundar} and Schteingart, Daniel and Ibarra, Ignacio},
+month = sep,
+title = {{Serie anual de Valor Agregado Bruto a precios básicos en pesos constantes de 2004 (1895-actualidad)}},
+url = {https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina},
+year = {2024}
+}
+```
+
 
 
 ---
