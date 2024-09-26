@@ -4,12 +4,17 @@ from pandas import DataFrame
 from pandas import read_csv, read_excel
 from typing import Callable
 import re
+import unicodedata
 
 
 # Funciones auxiliares
 def check_na_threshold(df, threshold):
     return df.apply(lambda row: row.isna().sum() >= threshold, axis=1)
 
+
+def strip_accents(s):
+   return ''.join(c for c in unicodedata.normalize('NFD', s)
+                  if unicodedata.category(c) != 'Mn')
 
 # Lista de conectores y preposiciones que no se deben capitalizar
 excepciones = ['del', 'de']
@@ -125,7 +130,8 @@ def cepal_clean(data:dict[str,pd.DataFrame]):
         df['provincia'] = sheet_name_normalized if sheet_name_normalized != "Ciudad de Buenos Aires" else "CABA"
 
         # Limpiar nombres de columnas (similar a janitor::clean_names en R)
-        df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
+        cols = df.columns.str.strip().str.lower().str.replace(' ', '_')
+        df.columns = list(map(strip_accents, cols))
 
         cepal_data.append(df)
 
