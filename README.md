@@ -10,7 +10,7 @@ geográfico de Argentina.
 
 *   **Araoz et al (2020). Growth and convergence among Argentine provinces since 1895 en Tirado Fabregat et al (Ed.), _Time and Space: Latin American Regional Development in Historical Perspective_ (Palgrave Studies in Economic History, pp. 65-95). Palgrave Macmillan. https://doi.org/10.1007/978-3-030-47553-6**. Contiene información sobre la participación de cada provincia en el PIB nacional, para los años 1895,1914,1937,1946,1953,1965,1975,1986,1993 y 2004. Datos extraídos de la Tabla 4.1. 
 
-*   **CEPAL et al (2023). _Desagregación provincial del valor agregado bruto de la Argentina, base 2004_. Programa de cooperación técnica de la CEPAL con el Ministerio de Economía de la Argentina. https://hdl.handle.net/11362/47900** Contiene el Valor Agregado Bruto (VAB) a precios básicos por provincias entre los años 2004-2022. Datos extraídos del [anexo estadístico](https://repositorio.cepal.org/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/download) 
+*   **Equipo de trabajo de la CEPAL y el Ministerio de Economía de la Argentina, [_Desagregación provincial del valor agregado bruto de la Argentina, base 2004_](https://www.cepal.org/es/publicaciones/47900-desagregacion-provincial-valor-agregado-bruto-la-argentina-base-2004), Documentos de Proyectos (LC/TS.2022/196; LC/BUE/TS.2022/9),Santiago, Comisión Económica para América Latina y el Caribe (CEPAL), 2022.** Contiene el Valor Agregado Bruto (VAB) a precios básicos por provincias entre los años 2004-2022. Datos extraídos del [anexo estadístico](https://repositorio.cepal.org/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/download) 
 
 *   **Ferreres, Orlando (2005). [Cuentas nacionales](https://dossiglos.fundacionnorteysur.org.ar/series/cuentas-nacionales) en _Dos siglos de economía argentina (1810 - 2004): historia argentina en cifras_. Fundación Norte y Sur.**. El capítulo contiene un amplio anexo estadístico el cual ha tenido ya varias actualizaciones. De la base de datos [Cuentas Nacionales](https://docs.google.com/spreadsheets/d/e/2PACX-1vTAGGfIqDw18YDI5zasGBRa4sG1ddUfMcKT87fzTkvz8HMe8Ipl6zJU0M2788oZrw/pub?output=xls) se extrajeron los datos correspondientes al PIB nacional a precios de mercado de 2004 entre los años 1809-2018
 
@@ -35,7 +35,7 @@ En la siguiente tabla se detalla la metodología
 | Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
 |---	|---	|---	|---	|
 | PIB a precios de mercado por provincia (PIBpm) 	| pesos constantes de 2004 	| 1895-2004 	| Tomando la participación de cada provincia en el PIB nacional <br>estimado en Aráoz et al (2020), y el valor del PIB a precios <br>de mercado proveniente de Ferreres (2005), se calcula el PIB a <br>precios de mercado por provincia 	|  	
-| VAB a precios básicos (VABpb)por provincia 	| pesos constantes de 2004 	| 2004-2022 	| Se toma el dato directamente de CEPAL 	|  	
+| VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 2004-2022 	| Se toma el dato directamente de CEPAL 	|  	
 | VAB a precios básicos (VABpb) por provincia 	| pesos constantes de 2004 	| 1895-2022 	| Para los años 2004-2022 se toma el VABpb de CEPAL. <br>Para los años 1895-2003 se estima el VABpb haciendo el empalme<br> hacia atrás: utilizando el valor del PIBpm de Ferreres y el cociente<br> VABpb (CEPAL) / PIBpm (Ferreres) en 2004 para replicar esa misma relación |
 
 
