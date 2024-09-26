@@ -1,4 +1,5 @@
 # El producto bruto de las provincias argentinas en el largo plazo. 
+### Serie anual de Valor Agregado Bruto a precios básicos en pesos constantes de 2004 (1895-actualidad). 
 
 Este repositorio contiene el codigo y bases de datos utilizadas para el armado 
 de una serie de tiempo de largo plazo (1895 a la actualidad) del producto bruto
@@ -56,7 +57,7 @@ Para ver en detalle cómo se ha hecho la limpieza y el procesamiento de las base
 
 ## Datos Abiertos
 
-En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas que se utilizaron para realizar los empalmes de las series de tiempo de VABpb y de Población. 
+En la carpeta `'./tablas'` se pueden encontrar todas las tablas pre-procesadas que se utilizaron para realizar los empalmes de las series de tiempo de VABpb y de Población. Asimismo queda disponibilizada la última actualización de la Serie de
 
 ### [clean_araoz.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/clean_araoz.csv)
 
