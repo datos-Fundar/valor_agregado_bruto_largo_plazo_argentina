@@ -35,24 +35,6 @@ A continuación se detalla la metodología de calculo empleada en los primeros d
 
 En la siguiente tabla se detalla la metodología 
 
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 16px;
-    text-align: left;
-  }
-  th, td {
-    padding: 12px 15px;
-    border: 1px solid #dddddd;
-  }
-  th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-  }
-</style>
-
 | Variable 	| Unidad de Medida 	| Años 	| Metodología 	|  	
 |---	|---	|---	|---	|
 | PIB a precios de mercado por provincia (PIBpm) 	| pesos constantes de 2004 	| 1895-2004 	| Tomando la participación de cada provincia en el PIB nacional <br>estimado en Aráoz et al (2020), y el valor del PIB a precios de mercado proveniente de Ferreres (2005), se calcula el PIB a precios de mercado por provincia 	|  	
