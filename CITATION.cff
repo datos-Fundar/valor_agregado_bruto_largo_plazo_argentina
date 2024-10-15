@@ -7,16 +7,14 @@ message: >-
   from this file.
 type: dataset
 authors:
-  - name: Fundar
-    website: 'https://fund.ar/'
-    country: AR
-    city: Buenos Aires
   - given-names: Daniel
     family-names: Schteingart
     email: dschteingart@fund.ar
+    affiliation: "Fundar"
   - given-names: Ignacio
     family-names: Ibarra
     email: iibarra@fund.ar
+    affiliation: "Fundar"
 repository-code: >-
   https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina
 abstract: >-
