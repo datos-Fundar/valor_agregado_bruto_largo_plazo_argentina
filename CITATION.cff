@@ -1,22 +1,9 @@
-cff-version: 1.2.0
+message: "Si usás este repositorio, por favor citalo usando estos datos."
+license: CC-BY-NC-SA-4.0
+type: dataset
 title: >-
   Serie anual de Valor Agregado Bruto a precios básicos en
   pesos constantes de 2004 (1895-actualidad)
-message: >-
-  If you use this dataset, please cite it using the metadata
-  from this file.
-type: dataset
-authors:
-  - name: Fundar
-    website: 'https://fund.ar/'
-    country: AR
-    city: Buenos Aires
-  - given-names: Daniel
-    family-names: Schteingart
-    email: dschteingart@fund.ar
-  - given-names: Ignacio
-    family-names: Ibarra
-    email: iibarra@fund.ar
 repository-code: >-
   https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina
 abstract: >-
@@ -24,6 +11,16 @@ abstract: >-
   utilizadas para el armado de una serie de tiempo de largo
   plazo (1895 a la actualidad) del producto bruto geográfico
   de Argentina.
-license: CC-BY-NC-ND-4.0
-version: '1.0'
-date-released: '2024-09-27'
+identifiers:
+  - description: >- 
+  Armado de una serie de tiempo de largo
+  plazo (1895 a la actualidad) del producto bruto geográfico
+  de Argentina
+    type: doi
+authors:
+  - given-names: Daniel
+    family-names: Schteingart
+    email: dschteingart@fund.ar
+  - given-names: Ignacio
+    family-names: Ibarra
+    email: iibarra@fund.ar
