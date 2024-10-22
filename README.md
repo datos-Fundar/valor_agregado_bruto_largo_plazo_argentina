@@ -1,5 +1,7 @@
 # El producto bruto de las provincias argentinas en el largo plazo.
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+
+[![DOI](https://zenodo.org/badge/862461738.svg)](https://doi.org/10.5281/zenodo.13976851) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 <h3 style="font-weight: normal; font-size: 1.2em; color: gray;">
     Serie anual de Valor Agregado Bruto a precios básicos en pesos constantes de 2004 (1895-actualidad).
