@@ -19,9 +19,9 @@ geográfico de Argentina.
 
 Contiene información sobre la participación de cada provincia en el PIB nacional, para los años 1895,1914,1937,1946,1953,1965,1975,1986,1993 y 2004. Datos extraídos de la Tabla 4.1. 
 
-*   **Equipo de trabajo de la CEPAL y el Ministerio de Economía de la Argentina, [_Desagregación provincial del valor agregado bruto de la Argentina, base 2004_](https://www.cepal.org/es/publicaciones/47900-desagregacion-provincial-valor-agregado-bruto-la-argentina-base-2004), Documentos de Proyectos (LC/TS.2022/196; LC/BUE/TS.2022/9),Santiago, Comisión Económica para América Latina y el Caribe (CEPAL), 2022.**
+*   **Equipo de trabajo de la CEPAL y el Ministerio de Economía de la Argentina, [_Desagregación provincial del valor agregado bruto de la Argentina, base 2004_](https://www.cepal.org/es/publicaciones/47900-desagregacion-provincial-valor-agregado-bruto-la-argentina-base-2004), Documentos de Proyectos (LC/TS.2022/196; LC/BUE/TS.2022/9),Santiago, Comisión Económica para América Latina y el Caribe (CEPAL), 2023.**
 
-Contiene el Valor Agregado Bruto (VAB) a precios básicos por provincias entre los años 2004-2022. Datos extraídos del [anexo estadístico](https://repositorio.cepal.org/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/download) 
+Contiene el Valor Agregado Bruto (VAB) a precios básicos por provincias entre los años 2004-2023. Datos extraídos del [anexo estadístico](https://repositorio.cepal.org/server/api/core/bitstreams/42cdb69b-33be-439c-8bfd-c444dc644ed1/content) 
 
 *   **Ferreres, Orlando (2005). [Cuentas nacionales](https://dossiglos.fundacionnorteysur.org.ar/series/cuentas-nacionales) en _Dos siglos de economía argentina (1810 - 2004): historia argentina en cifras_. Fundación Norte y Sur.**. 
 
