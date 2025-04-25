@@ -22,7 +22,7 @@ from src.procesamiento import calcular_empalme_producto, calcular_empalme_poblac
 
 PATHS = {
     'path_araoz': "input_data/araoz_nicolini_et_al_Table_4_1.csv",
-    'path_cepal': "https://repositorio.cepal.org/server/api/core/bitstreams/7399c6c9-0827-42da-b433-d176cb4107c7/content",
+    'path_cepal': "https://repositorio.cepal.org/server/api/core/bitstreams/42cdb69b-33be-439c-8bfd-c444dc644ed1/content",
     'path_fnys_prod': "https://docs.google.com/spreadsheets/d/e/2PACX-1vTAGGfIqDw18YDI5zasGBRa4sG1ddUfMcKT87fzTkvz8HMe8Ipl6zJU0M2788oZrw/pub?output=xls",
     'path_indec': "https://www.indec.gob.ar/ftp/cuadros/poblacion/c1_proyecciones_prov_2010_2040.xls",
     'path_fnys_pob': "https://docs.google.com/spreadsheets/d/e/2PACX-1vTp7K9ixEWzesZybHJG_e47YfafF49L8dqgtLgqItT45Gb4Ru0YjIF0723lxCHRhA/pub?output=xls"
