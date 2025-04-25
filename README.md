@@ -114,7 +114,7 @@ En la carpeta [`'./tablas'`](https://github.com/datos-Fundar/valor-agregado-brut
 | pob_mujeres | real | Cantidad de habitantes varones estimados  |
 | provincia | alfanumérico | Provincia de Argentina |
 
-### [empalme_series_pbg_pob_vab_pc.csv.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/empalme_series_pbg_pob_vab_pc.csv)
+### [empalme_series_pbg_pob_vab_pc.csv](https://github.com/datos-Fundar/valor-agregado-bruto-largo-plazo-argentina/blob/main/tablas/empalme_series_pbg_pob_vab_pc.csv)
 
 |**Variable**|**Tipo de dato**|**Descripcion**|
 |:-------------:|:-------------:|:-------------:|
